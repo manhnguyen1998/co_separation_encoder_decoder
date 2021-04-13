@@ -1,0 +1,274 @@
+------------ Options -------------
+audio_sampling_rate: 11025
+audio_window: 65535
+batchSize: 24
+beta1: 0.9
+checkpoints_dir: checkpoints/
+classifier_loss_weight: 0.05
+classifier_pool: maxpool
+continue_train: True
+coseparation_loss_weight: 1.0
+data_path: /your_data_root/MUSICDataset/solo/
+decay_factor: 0.1
+display_freq: 10
+enable_data_augmentation: True
+epoch_count: 0
+gpu_ids: [1, 2]
+hdf5_path: /home/manhnguyen/new/co-separation/dataset/sample_hdf5
+log_freq: True
+lr_classifier: 0.0001
+lr_steps: [15000, 30000]
+lr_unet: 0.0001
+lr_visual: 1e-05
+mask_loss_type: L1
+mask_thresh: 0.5
+measure_time: False
+mode: train
+model: audioVisualMUSIC
+nThreads: 32
+name: audioVisual
+niter: 10
+num_batch: 100000
+num_object_per_video: 2
+num_per_mix: 2
+num_visualization_examples: 20
+number_of_classes: 15
+optimizer: adam
+preserve_ratio: False
+save_latest_freq: 500
+scene_path: /your_root/hdf5/ADE.h5
+seed: 0
+stft_frame: 1022
+stft_hop: 256
+subtract_mean: True
+tensorboard: True
+unet_input_nc: 1
+unet_ngf: 64
+unet_num_layers: 7
+unet_output_nc: 1
+validation_batches: 20
+validation_freq: 200
+validation_on: True
+validation_visualization: True
+visual_pool: conv1x1
+weight_decay: 0.0001
+weighted_loss: True
+weights_classifier: 
+weights_unet: 
+weights_visual: 
+with_additional_scene_image: False
+-------------- End ----------------
+CustomDatasetDataLoader
+dataset [AudioVisualMUSICDataset] was created
+#training images = 2400000
+CustomDatasetDataLoader
+dataset [AudioVisualMUSICDataset] was created
+#validation images = 480
+Traceback (most recent call last):
+  File "train.py", line 314, in <module>
+    output = model.forward(data)
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/nn/parallel/data_parallel.py", line 143, in forward
+    outputs = self.parallel_apply(replicas, inputs, kwargs)
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/nn/parallel/data_parallel.py", line 153, in parallel_apply
+    return parallel_apply(replicas, inputs, kwargs, self.device_ids[:len(replicas)])
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/nn/parallel/parallel_apply.py", line 83, in parallel_apply
+    raise output
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/nn/parallel/parallel_apply.py", line 59, in _worker
+    output = module(*input, **kwargs)
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/nn/modules/module.py", line 489, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/manhnguyen/new/co-separation/models/audioVisual_model.py", line 64, in forward
+    label_prediction = self.net_classifier(spectrogram2classify)
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/nn/modules/module.py", line 489, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/manhnguyen/new/co-separation/models/networks.py", line 64, in forward
+    x = self.feature_extraction(x)
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/nn/modules/module.py", line 489, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/nn/modules/container.py", line 92, in forward
+    input = module(input)
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/nn/modules/module.py", line 489, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/nn/modules/container.py", line 92, in forward
+    input = module(input)
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/nn/modules/module.py", line 489, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torchvision/models/resnet.py", line 46, in forward
+    out = self.bn2(out)
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/nn/modules/module.py", line 489, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/nn/modules/batchnorm.py", line 76, in forward
+    exponential_average_factor, self.eps)
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/nn/functional.py", line 1623, in batch_norm
+    training, momentum, eps, torch.backends.cudnn.enabled
+RuntimeError: CUDA out of memory. Tried to allocate 37.00 MiB (GPU 1; 10.76 GiB total capacity; 3.49 GiB already allocated; 10.44 MiB free; 98.79 MiB cached)
+------------ Options -------------
+audio_sampling_rate: 11025
+audio_window: 65535
+batchSize: 20
+beta1: 0.9
+checkpoints_dir: checkpoints/
+classifier_loss_weight: 0.05
+classifier_pool: maxpool
+continue_train: True
+coseparation_loss_weight: 1.0
+data_path: /your_data_root/MUSICDataset/solo/
+decay_factor: 0.1
+display_freq: 10
+enable_data_augmentation: True
+epoch_count: 0
+gpu_ids: [1, 2]
+hdf5_path: /home/manhnguyen/new/co-separation/dataset/sample_hdf5
+log_freq: True
+lr_classifier: 0.0001
+lr_steps: [15000, 30000]
+lr_unet: 0.0001
+lr_visual: 1e-05
+mask_loss_type: L1
+mask_thresh: 0.5
+measure_time: False
+mode: train
+model: audioVisualMUSIC
+nThreads: 32
+name: audioVisual
+niter: 10
+num_batch: 100000
+num_object_per_video: 2
+num_per_mix: 2
+num_visualization_examples: 20
+number_of_classes: 15
+optimizer: adam
+preserve_ratio: False
+save_latest_freq: 500
+scene_path: /your_root/hdf5/ADE.h5
+seed: 0
+stft_frame: 1022
+stft_hop: 256
+subtract_mean: True
+tensorboard: True
+unet_input_nc: 1
+unet_ngf: 64
+unet_num_layers: 7
+unet_output_nc: 1
+validation_batches: 20
+validation_freq: 200
+validation_on: True
+validation_visualization: True
+visual_pool: conv1x1
+weight_decay: 0.0001
+weighted_loss: True
+weights_classifier: 
+weights_unet: 
+weights_visual: 
+with_additional_scene_image: False
+-------------- End ----------------
+CustomDatasetDataLoader
+dataset [AudioVisualMUSICDataset] was created
+#training images = 2000000
+CustomDatasetDataLoader
+dataset [AudioVisualMUSICDataset] was created
+#validation images = 400
+Traceback (most recent call last):
+  File "train.py", line 331, in <module>
+    classifier_loss.backward(retain_graph=True)
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/tensor.py", line 102, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph)
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/autograd/__init__.py", line 90, in backward
+    allow_unreachable=True)  # allow_unreachable flag
+RuntimeError: CUDA out of memory. Tried to allocate 54.00 MiB (GPU 1; 10.76 GiB total capacity; 3.49 GiB already allocated; 50.44 MiB free; 71.51 MiB cached)
+------------ Options -------------
+audio_sampling_rate: 11025
+audio_window: 65535
+batchSize: 16
+beta1: 0.9
+checkpoints_dir: checkpoints/
+classifier_loss_weight: 0.05
+classifier_pool: maxpool
+continue_train: True
+coseparation_loss_weight: 1.0
+data_path: /your_data_root/MUSICDataset/solo/
+decay_factor: 0.1
+display_freq: 10
+enable_data_augmentation: True
+epoch_count: 0
+gpu_ids: [1, 2]
+hdf5_path: /home/manhnguyen/new/co-separation/dataset/sample_hdf5
+log_freq: True
+lr_classifier: 0.0001
+lr_steps: [15000, 30000]
+lr_unet: 0.0001
+lr_visual: 1e-05
+mask_loss_type: L1
+mask_thresh: 0.5
+measure_time: False
+mode: train
+model: audioVisualMUSIC
+nThreads: 32
+name: audioVisual
+niter: 10
+num_batch: 100000
+num_object_per_video: 2
+num_per_mix: 2
+num_visualization_examples: 20
+number_of_classes: 15
+optimizer: adam
+preserve_ratio: False
+save_latest_freq: 500
+scene_path: /your_root/hdf5/ADE.h5
+seed: 0
+stft_frame: 1022
+stft_hop: 256
+subtract_mean: True
+tensorboard: True
+unet_input_nc: 1
+unet_ngf: 64
+unet_num_layers: 7
+unet_output_nc: 1
+validation_batches: 20
+validation_freq: 200
+validation_on: True
+validation_visualization: True
+visual_pool: conv1x1
+weight_decay: 0.0001
+weighted_loss: True
+weights_classifier: 
+weights_unet: 
+weights_visual: 
+with_additional_scene_image: False
+-------------- End ----------------
+CustomDatasetDataLoader
+dataset [AudioVisualMUSICDataset] was created
+#training images = 1600000
+CustomDatasetDataLoader
+dataset [AudioVisualMUSICDataset] was created
+#validation images = 320
+Traceback (most recent call last):
+  File "train.py", line 314, in <module>
+    output = model.forward(data)
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/nn/parallel/data_parallel.py", line 143, in forward
+    outputs = self.parallel_apply(replicas, inputs, kwargs)
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/nn/parallel/data_parallel.py", line 153, in parallel_apply
+    return parallel_apply(replicas, inputs, kwargs, self.device_ids[:len(replicas)])
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/nn/parallel/parallel_apply.py", line 83, in parallel_apply
+    raise output
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/nn/parallel/parallel_apply.py", line 59, in _worker
+    output = module(*input, **kwargs)
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/nn/modules/module.py", line 489, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/manhnguyen/new/co-separation/models/audioVisual_model.py", line 48, in forward
+    mask_prediction = self.net_unet(audio_log_mags, visual_feature)
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/nn/modules/module.py", line 489, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/manhnguyen/new/co-separation/models/networks.py", line 121, in forward
+    audio_upconv6feature = self.audionet_upconvlayer6(torch.cat((audio_upconv5feature, audio_conv2feature), dim=1))
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/nn/modules/module.py", line 489, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/nn/modules/container.py", line 92, in forward
+    input = module(input)
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/nn/modules/module.py", line 489, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/nn/modules/batchnorm.py", line 76, in forward
+    exponential_average_factor, self.eps)
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/nn/functional.py", line 1623, in batch_norm
+    training, momentum, eps, torch.backends.cudnn.enabled
+RuntimeError: CUDA out of memory. Tried to allocate 116.00 MiB (GPU 1; 10.76 GiB total capacity; 3.46 GiB already allocated; 70.44 MiB free; 39.12 MiB cached)
