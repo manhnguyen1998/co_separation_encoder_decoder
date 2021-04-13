@@ -1,0 +1,174 @@
+script.sh: line 14: --classifier_loss_weight: command not found
+script.sh: line 14: --classifier_loss_weight: command not found
+------------ Options -------------
+audio_sampling_rate: 11025
+audio_window: 65535
+batchSize: 8
+beta1: 0.9
+checkpoints_dir: 8_1000000_checkpoint_dataD3
+classifier_loss_weight: 0.05
+classifier_pool: maxpool
+continue_train: True
+coseparation_loss_weight: 1.0
+data_path: /your_data_root/MUSICDataset/solo/
+decay_factor: 0.1
+display_freq: 10
+enable_data_augmentation: True
+epoch_count: 0
+gpu_ids: [1, 2]
+hdf5_path: /home/manhnguyen/new/co-separation/dataset/sample_hdf5
+log_freq: True
+lr_classifier: 0.0001
+lr_steps: [15000, 30000]
+lr_unet: 0.0001
+lr_visual: 1e-05
+mask_loss_type: L1
+mask_thresh: 0.5
+measure_time: False
+mode: train
+model: audioVisualMUSIC
+nThreads: 32
+name: audioVisual
+niter: 2
+num_batch: 500000
+num_object_per_video: 2
+num_per_mix: 2
+num_visualization_examples: 20
+number_of_classes: 15
+optimizer: adam
+preserve_ratio: False
+save_latest_freq: 500
+scene_path: /your_root/hdf5/ADE.h5
+seed: 0
+stft_frame: 1022
+stft_hop: 256
+subtract_mean: True
+tensorboard: True
+unet_input_nc: 1
+unet_ngf: 64
+unet_num_layers: 7
+unet_output_nc: 1
+validation_batches: 20
+validation_freq: 200
+validation_on: True
+validation_visualization: True
+visual_pool: conv1x1
+weight_decay: 0.0001
+weighted_loss: True
+weights_classifier: /home/manhnguyen/new/co-separation/checkpoints_new/audioVisual/classifier_best.pth
+weights_unet: /home/manhnguyen/new/co-separation/checkpoints_new/audioVisual/unet_best.pth
+weights_visual: /home/manhnguyen/new/co-separation/checkpoints_new/audioVisual/visual_best.pth
+with_additional_scene_image: False
+-------------- End ----------------
+CustomDatasetDataLoader
+dataset [AudioVisualMUSICDataset] was created
+#training images = 4000000
+CustomDatasetDataLoader
+dataset [AudioVisualMUSICDataset] was created
+#validation images = 160
+Loading weights for visual stream
+Loading weights for UNet
+Loading weights for audio classifier
+Display training progress at (epoch 1, total_batches 10)
+classifier loss: 0.005, co-separation loss: 0.209
+end of display 
+
+Display training progress at (epoch 1, total_batches 20)
+classifier loss: 0.011, co-separation loss: 0.213
+end of display 
+
+Display training progress at (epoch 1, total_batches 30)
+classifier loss: 0.003, co-separation loss: 0.242
+end of display 
+
+Display training progress at (epoch 1, total_batches 40)
+classifier loss: 0.005, co-separation loss: 0.236
+end of display 
+
+Display training progress at (epoch 1, total_batches 50)
+classifier loss: 0.006, co-separation loss: 0.216
+end of display 
+
+Display training progress at (epoch 1, total_batches 60)
+classifier loss: 0.005, co-separation loss: 0.220
+end of display 
+
+Display training progress at (epoch 1, total_batches 70)
+classifier loss: 0.002, co-separation loss: 0.188
+end of display 
+
+Display training progress at (epoch 1, total_batches 80)
+classifier loss: 0.003, co-separation loss: 0.217
+end of display 
+
+Display training progress at (epoch 1, total_batches 90)
+classifier loss: 0.004, co-separation loss: 0.222
+end of display 
+
+Display training progress at (epoch 1, total_batches 100)
+classifier loss: 0.004, co-separation loss: 0.226
+end of display 
+
+Display training progress at (epoch 1, total_batches 110)
+classifier loss: 0.003, co-separation loss: 0.218
+end of display 
+
+Display training progress at (epoch 1, total_batches 120)
+classifier loss: 0.003, co-separation loss: 0.230
+end of display 
+
+Display training progress at (epoch 1, total_batches 130)
+classifier loss: 0.003, co-separation loss: 0.250
+end of display 
+
+Display training progress at (epoch 1, total_batches 140)
+classifier loss: 0.004, co-separation loss: 0.228
+end of display 
+
+Display training progress at (epoch 1, total_batches 150)
+classifier loss: 0.005, co-separation loss: 0.205
+end of display 
+
+Display training progress at (epoch 1, total_batches 160)
+classifier loss: 0.002, co-separation loss: 0.219
+end of display 
+
+Display training progress at (epoch 1, total_batches 170)
+classifier loss: 0.001, co-separation loss: 0.203
+end of display 
+
+Display training progress at (epoch 1, total_batches 180)
+classifier loss: 0.003, co-separation loss: 0.221
+end of display 
+
+Display training progress at (epoch 1, total_batches 190)
+classifier loss: 0.005, co-separation loss: 0.226
+end of display 
+
+Display training progress at (epoch 1, total_batches 200)
+classifier loss: 0.003, co-separation loss: 0.206
+end of display 
+
+Display validation results at (epoch 1, total_batches 200)
+Traceback (most recent call last):
+  File "train.py", line 378, in <module>
+    val_err = display_val(model, crit, writer, total_batches, dataset_val, opt)
+  File "train.py", line 149, in display_val
+    for i, val_data in enumerate(dataset_val):
+  File "/home/manhnguyen/new/co-separation/data/custom_dataset_data_loader.py", line 46, in __iter__
+    for i, data in enumerate(self.dataloader):
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 637, in __next__
+    return self._process_next_batch(batch)
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 658, in _process_next_batch
+    raise batch.exc_type(batch.exc_msg)
+FileNotFoundError: Traceback (most recent call last):
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 138, in _worker_loop
+    samples = collate_fn([dataset[i] for i in batch_indices])
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 138, in <listcomp>
+    samples = collate_fn([dataset[i] for i in batch_indices])
+  File "/home/manhnguyen/new/co-separation/data/audioVisual_dataset.py", line 135, in __getitem__
+    clip_det_bbs[n] = sample_object_detections(np.load(clip_det_paths[n])) #load the bbs for the clip and sample one from each class
+  File "/home/manhnguyen/anaconda3/envs/co_separation/lib/python3.7/site-packages/numpy/lib/npyio.py", line 416, in load
+    fid = stack.enter_context(open(os_fspath(file), "rb"))
+FileNotFoundError: [Errno 2] No such file or directory: '/ext_data2/manhnh/MUSIC_dataset/top_detections/solo/top_detections_two_classes/GezwOJW568A_1.npy'
+
